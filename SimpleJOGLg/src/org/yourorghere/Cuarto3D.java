@@ -12,18 +12,13 @@ import javax.media.opengl.GLCanvas;
 import javax.media.opengl.GLEventListener;
 import javax.media.opengl.glu.GLU;
  
-/**
- * TestOpenGL
- * author: Rafa Gallardo
- *
- */
 public class Cuarto3D implements GLEventListener {
     public static final double Pi = 3.14159265358979323846;
    
     public static void main(String[] args) {
         Frame frame = new Frame("OpenGl Graficos");
         GLCanvas canvas = new GLCanvas();
- 
+         int i;
         canvas.addGLEventListener(new Cuarto3D());
         frame.add(canvas);
         frame.setSize(640, 550);
@@ -116,8 +111,26 @@ public class Cuarto3D implements GLEventListener {
             gl.glVertex3f(-2.0f, 1.7f, 0.0f);
             
         gl.glEnd();
+         
        
-        //dibuja pared derecha
+         gl.glColor3f(0.9f, 0.6f, 0.5f);
+         gl.glBegin(gl.GL_QUADS);
+            gl.glVertex3f(-0.0f, 0.0f, 0.0f);
+            gl.glVertex3f(0.0f, 1.8f, 0.0f);
+            gl.glVertex3f(2.0f, -0.8f, 0.0f);
+            gl.glVertex3f(-0.5f, -0.8f, 0.0f);
+            
+         gl.glEnd();
+        gl.glColor3f(0.3f, 0.3f, 0.1f);   
+        gl.glBegin(gl.GL_QUAD_STRIP);
+        gl.glVertex3f( -5.0f, 0.0f, 1.0f );
+        gl.glVertex3f( 1.0f, 0.0f, 3.0f );
+        gl.glVertex3f( 0.0f, 1.0f, 2.0f );
+        gl.glEnd( );
+        
+        
+        
+          //dibuja pared derecha
          gl.glColor3f(0.176f, 0.675f, 0.433f);
          gl.glBegin(gl.GL_QUADS);
             gl.glVertex3f(-0.5f, 1.7f, 0.0f);
